@@ -4,7 +4,11 @@
   "description": "Validate that at least one of a group of fields has a value.",
   "main": "validator.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha -R spec"
+    "lint": "./node_modules/.bin/jshint validator.js",
+    "pretest": "npm run-script lint",
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -R spec",
+    "posttest": "./node_modules/.bin/istanbul check-coverage && rm -rf coverage",
+    "prepublish": "npm test && npm prune"
   },
   "repository": {
     "type": "git",
@@ -22,6 +26,8 @@
   },
   "homepage": "https://github.com/balaclark/validity-require-one",
   "devDependencies": {
+    "istanbul": "~0.3.0",
+    "jshint": "~2.5.2",
     "mocha": "~1.20.1"
   },
   "dependencies": {
