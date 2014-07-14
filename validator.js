@@ -1,11 +1,12 @@
 var defaultMsg = 'At least one of these fields should have a value'
+  , validity = require('validity')
   , async = require('async')
 
 module.exports = requireOne
 
 function requireOne(fields, msg) {
 
-  var required = require('validity').customRequired(msg || defaultMsg)
+  var required = validity.customRequired(msg || defaultMsg)
 
   return function (key, msg, object, callback) {
 
