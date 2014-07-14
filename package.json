@@ -1,6 +1,6 @@
 {
   "name": "validity-require-one",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Validate that at least one of a group of fields has a value.",
   "main": "validator.js",
   "scripts": {
